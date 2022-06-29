@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 class ListaController extends Controller
 {
     //
-    public function index(Request $request){
-        $contacts = Contact::where('name', 'like', '%' . $request->search . '%')->get();
+    public function index(){
+        $contacts = Contact::all();
         $contacts = Contact::paginate(10);
         return view('lista', [
             'contacts' => $contacts
